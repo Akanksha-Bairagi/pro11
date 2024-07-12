@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Listings</title>
+ 
+  <!-- Additional CSS specific to emulate the first project's card style -->
+  <style>
+   body {
+    background-color: #e3f6fd !important; /* Lightest Shade */
+    font-family: 'Merienda', cursive, 'Playfair Display', serif !important;
+}
+
+    /* Listing Card styling */
+    .listing-card {
+      border: none !important;
+      margin-bottom: 2rem;
+      background-color: #e3f6fd !important; /* Lightest Shade */
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      overflow: hidden;
+      max-width: 100%; /* Adjust as needed */
+      width: 100%; /* Ensure cards take full width of their container */
+    }
+
+    .listing-card:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .listing-card img {
+      border-radius: 1rem !important;
+      width: 100%;
+      height: 20rem; /* Adjust height as per your first project */
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1rem !important; /* Adjust padding as needed */
+    }
+
+    .card-text {
+      font-weight: 400 !important;
+      color: #001b44; /* Darkest Shade */
+    }
+
+    .custom-link {
+      text-decoration: none;
+      color: #000000; /* Black */
+    }
+
+    .card-img-overlay {
+      opacity: 0;
+    }
+
+    .card-img-overlay:hover {
+      opacity: 0.3;
+      background-color: #ffffff; /* White */
+    }
+
+    /* Grid layout adjustments */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Adjust to control spacing between columns */
+      gap: 20px; /* Adjust the gap between cards */
+    }
+
+    .col {
+      flex: 0 0 calc(50% - 10px); /* Ensure two columns with small space between */
+      max-width: calc(50% - 10px);
+    }
+
+    @media (max-width: 768px) {
+      .col {
+        flex: 0 0 100%; /* Full width on smaller screens */
+        max-width: 100%;
+      }
+    }
+
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Sticky Navbar styling */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: sticky;
+      top: 0;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Search Form styling */
+    .search-container {
+      float: right;
+      padding: 10px;
+      margin-top: 8px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+
+      .search-container {
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a href="/discover">Discover</a> <!-- Link to the new discover page -->
+  <div class="search-container">
+    <form action="/listings" method="get">
+      <input type="text" placeholder="Search by Aesthetic or Color" name="query">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+
+<h3>Discover</h3>
+
+<!-- Listings -->
+<div class="row">
+  <% for(let listing of allListings) { %>
+    <div class="col">
+      <div class="card listing-card">
+        <a href="/listings/<%= listing._id %>" class="custom-link">
+          <img src="<%= listing.image %>" class="card-img-top" alt="Listing Image">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><a href="/listings/<%= listing._id %>" class="custom-link"><%= listing.title %></a></h5>
+        </div>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+</body>
+</html>

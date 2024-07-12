@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Your Aesthetic</title>
+  <!-- Additional CSS specific to emulate the first project's card style -->
+  <style>
+    body {
+      background-color: #e3f6fd !important; /* Lightest Shade */
+      font-family: 'Merienda', cursive, 'Playfair Display', serif !important;
+      padding: 20px;
+      margin: 0;
+    }
+
+    /* Listing Card styling */
+    .listing-card {
+      border: none !important;
+      margin-bottom: 2rem;
+      background-color: #e3f6fd !important; /* Lightest Shade */
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      overflow: hidden;
+      max-width: 100%; /* Adjust as needed */
+      width: 100%; /* Ensure cards take full width of their container */
+    }
+
+    .listing-card:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .listing-card img {
+      border-radius: 1rem !important;
+      width: 100%;
+      height: 20rem; /* Adjust height as per your first project */
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1rem !important; /* Adjust padding as needed */
+    }
+
+    .card-text {
+      font-weight: 400 !important;
+      color: #001b44; /* Darkest Shade */
+    }
+
+    .custom-link {
+      text-decoration: none;
+      color: #000000; /* Black */
+    }
+
+    .card-img-overlay {
+      opacity: 0;
+    }
+
+    .card-img-overlay:hover {
+      opacity: 0.3;
+      background-color: #ffffff; /* White */
+    }
+
+    /* Grid layout adjustments */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Adjust to control spacing between columns */
+      gap: 20px; /* Adjust the gap between cards */
+    }
+
+    .col {
+      flex: 0 0 calc(50% - 10px); /* Ensure two columns with small space between */
+      max-width: calc(50% - 10px);
+    }
+
+    @media (max-width: 768px) {
+      .col {
+        flex: 0 0 100%; /* Full width on smaller screens */
+        max-width: 100%;
+      }
+    }
+
+    /* General styling */
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Sticky Navbar styling */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: sticky;
+      top: 0;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Image Container styling */
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .image-container img {
+      border-radius: 1rem;
+      width: 100%;
+      height: 20rem; /* Adjust height as needed */
+      object-fit: cover;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .image-container img:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="/quiz">Take Quiz</a>
+    <!-- Link to the new discover page -->
+</div>
+
+<h2>Discover Your Aesthetic</h2>
+
+<!-- Image Container -->
+<div class="row">
+  <div class="col">
+    <div class="card listing-card">
+      <a href="#" class="custom-link">
+        <img src="https://images.unsplash.com/photo-1519969623583-9345d76f9649?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 1">
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card listing-card">
+      <a href="#" class="custom-link">
+        <img src="https://images.unsplash.com/photo-1609351231656-9285d74d363d?q=80&w=2655&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 2">
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card listing-card">
+      <a href="#" class="custom-link">
+        <img src="https://images.unsplash.com/photo-1548320674-5c4604ed9cb5?q=80&w=2812&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 3">
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card listing-card">
+      <a href="#" class="custom-link">
+        <img src="https://images.unsplash.com/photo-1560386076-35f6f8c80736?q=80&w=2817&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 4">
+      </a>
+    </div>
+  </div>
+</div>
+
+<p>This is the discover page content.</p>
+<a href="/quiz">Take Quiz</a>
+
+</body>
+</html>

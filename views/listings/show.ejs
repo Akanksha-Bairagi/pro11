@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listing Details</title>
+  <style>
+    body {
+      background-color: #e3f6fd !important; /* Lightest Shade */
+      font-family: 'Merienda', cursive, 'Playfair Display', serif !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Center the card container */
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Listing Card styling */
+    .listing-card {
+      border: none !important;
+      margin-bottom: 2rem;
+      background-color: #e3f6fd !important; /* Lightest Shade */
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      overflow: hidden;
+      max-width: 400px; /* Adjust max width as needed */
+      width: 100%; 
+      height: auto; /* Ensure cards take full height of their content */
+    }
+
+    .listing-card:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .listing-card img {
+      border-radius: 1rem !important;
+      width: 100%;
+      height: auto;
+      max-height: 400px; /* Adjust max height as needed */
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1rem !important; /* Adjust padding as needed */
+    }
+
+    .card-text {
+      font-weight: 400 !important;
+      color: #001b44; /* Darkest Shade */
+    }
+
+    .custom-link {
+      text-decoration: none;
+      color: #000000; /* Black */
+    }
+
+    .card-img-overlay {
+      opacity: 0;
+    }
+
+    .card-img-overlay:hover {
+      opacity: 0.3;
+      background-color: #ffffff; /* White */
+    }
+
+    /* General styling */
+    h3 {
+      text-align: center;
+      margin: 0; /* Remove default margin */
+      padding-top: 20px; /* Adjust top padding as needed */
+    }
+
+    /* Button styling */
+.custom-button {
+  position: fixed; /* Fixed positioning relative to the viewport */
+  top: 20px; /* Distance from the top edge of the viewport */
+  left: 20px; /* Distance from the left edge of the viewport */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.custom-button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* Button Color */
+  color: #ffffff; /* Button Text Color */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button a:hover {
+  background-color: #0056b3; /* Darker Button Color on Hover */
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="custom-button">
+    <a href="/listings">Go to Listings</a>
+  </div>
+  
+  <div class="card-container">
+    <div class="card listing-card">
+      <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing_image">
+      <div class="card-body">
+        <p class="card-text">
+          <li>Title: <%= listing.title %></li>
+          <% if (listing.price !== null && listing.price !== undefined) { %>
+            <p class="card-text-item price">&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
+          <% } else { %>
+            <p class="card-text-item price-not-available">Price not available</p>
+          <% } %>
+          <li>Aesthetic: <%= listing.aesthetic %></li>
+          <li>Color: <%= listing.color %></li>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

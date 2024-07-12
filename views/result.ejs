@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="result-container">
+        <h1>Quiz Result</h1>
+
+        <script>
+            const q1 = "<%= q1 %>";
+            const q2 = "<%= q2 %>";
+            const q3 = "<%= q3 %>";
+            const q4 = "<%= q4 %>";
+            const q5 = "<%= q5 %>";
+            const q6 = "<%= q6 %>";
+            const q7 = "<%= q7 %>";
+            const q8 = "<%= q8 %>";
+            const q9 = "<%= q9 %>";
+            const q10 = "<%= q10 %>";
+
+            let aestheticScores = {
+                "Vintage": 0,
+                "Minimalist": 0,
+                "Bohemian": 0,
+                "Streetwear": 0
+            };
+
+            function calculateScore(aesthetic) {
+                aestheticScores[aesthetic]++;
+            }
+
+            calculateScore(q1);
+            calculateScore(q2);
+            calculateScore(q3);
+            calculateScore(q4);
+            calculateScore(q5);
+            calculateScore(q6);
+            calculateScore(q7);
+            calculateScore(q8);
+            calculateScore(q9);
+            calculateScore(q10);
+
+            let maxAesthetic = "Vintage";
+            let maxScore = 0;
+
+            for (let aesthetic in aestheticScores) {
+                if (aestheticScores[aesthetic] > maxScore) {
+                    maxAesthetic = aesthetic;
+                    maxScore = aestheticScores[aesthetic];
+                }
+            }
+
+            document.write("<p style='font-weight: bold; font-size: 24px;'>Your aesthetic is: " + maxAesthetic + "</p>");
+
+            document.write("<div class='interactive-buttons'>");
+            document.write("<button class='btn-light' onclick='retakeQuiz()'>Retake Quiz</button>");
+            document.write("</div>");
+
+            function retakeQuiz() {
+                window.location.href = "/quiz";
+            }
+        </script>
+    </div>
+</body>
+</html>
